@@ -5,7 +5,7 @@
 */
 @font-face {
 	font-family: roboto-light;
-	src:url(../fonts/roboto/Roboto-Light.ttf);
+	src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fBBc4.woff2) format('woff2');
 }
 
 .logout_btn {
