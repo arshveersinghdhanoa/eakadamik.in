@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="PU,Panjab University,CDAC Mohali" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="expires" content="Thu Jul 16 06:23:28 IST 2026">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta name="csrf-param" content="_csrf">
+  <meta name="csrf-token" content="TjUueTlpYmEmWkcxcCAqJShYHzxLCCgJOG16DF4tVzc8GHxKbTMIKA==">
+  <link rel="shortcut icon" href="/ccet/images/logo_pu.png" />
+  <script>
+    var CourseIDWITHVALUE = [];
+    var ALengthMenu = "200,150,130,120,110,100,90,80,70,60,50,40,30,20,10";
+    ALengthMenu = ALengthMenu.split(',');
+    var FILEUPLOADSIZE = parseFloat("120");/*maximum upload Size*/
+  </script>
+  <title>eAkadamik WebApp</title>
+  <script>
+
+    CourseIDWITHVALUE.push({ courseID: 11, courseYear: 4 });
+
+    CourseIDWITHVALUE.push({ courseID: 22, courseYear: 2 });
+
+    CourseIDWITHVALUE.push({ courseID: 33, courseYear: 2 });
+    /* console.log(CourseIDWITHVALUE); */
+  </script>
+  <link href="/ccet/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/ccet/css/goofle_font.css" rel="stylesheet">
+  <link href="/ccet/css/style.css?v=2018120301" rel="stylesheet">
+  <link href="/ccet/css/blue/general.css?v=2018120301" rel="stylesheet">
+  <link href="/ccet/css/datepicker.css" rel="stylesheet">
+  <link href="/ccet/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="/ccet/css/jquery.tokenize.css" rel="stylesheet">
+  <script src="/ccet/js/jquery.js"></script>
+  <script src="/ccet/js/bootstrap.min.js"></script>
+  <script src="/ccet/js/common.js?v=2021040701"></script>
+  <script src="/ccet/js/common1.js?v=2021040701"></script>
+  <script src="/ccet/js/bootstrap-datepicker.js"></script>
+  <script src="/ccet/js/common2.js?v=2021040701"></script>
+  <script src="/ccet/js/jquery.dataTables.min.js"></script>
+  <script src="/ccet/js/jquery.tokenize.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    #loading {
+      background-color: #fff;
+      display: block;
+      height: 100%;
+      left: 0;
+      opacity: 0.7;
+      position: fixed;
+      text-align: center;
+      top: 15%;
+      width: 100%;
+      z-index: 99;
+    }
+
+    hr.hrline {
+      background: #eeae2d none repeat scroll 0 0;
+      height: 2px;
+      margin: 0 0 15px;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-103148929-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <div style="display:none" id="loading">
+    <h1 style="font-family: georgia;border:none">Please wait....</h1>
+    <img alt="Loading..." src="/ccet/images/loading.gif" id="loading-image">
+  </div>
+
+  <script>
+    var BASEURL = "/ccet/";
+    var TODAY_DATE = "16-07-2026";
+    var CURRENT_YEAR = "2026";
+    var PAGINATION_PER_PAGE = "10";
+  </script>
+  <style>
+    .selected {
+      background-color: white;
+      height: 52px;
+    }
+  </style>
+  <div id="header-box">
+
+    <div class="top-panel-bg navbar-fixed-top">
+
+      <div class="container">
+        <div class="row" style="margin-top:10px;">
+          <div class="col-xs-8 col-sm-8 col-lg-2" style="border-right:1px solid #fff;"> <img
+              src="/ccet/images/logo_uas.png" alt="dashboard-img" class="img-responsive"> </div>
+          <div class="col-xs-4 col-sm-4 col-lg-4">
+            <div class="punjab-uni-font"> PANJAB UNIVERSITY <br> CHANDIGARH </div>
+          </div>
+          <div class="col-lg-6 text-right">
+            <div class="col-lg-12 col-xs-3 text-right pull-right rtcont" style="padding-right:0;">
+              <div class="col-sm-8 col-lg-10 top-left-content robotofont"> Welcome <br>
+                Arshveer&nbsp; Singh Dhanoa&nbsp;(Student) </div>
+              <div class="round-circle">
+                <img src="/ccet/images/userpic_top.png" alt="user-icon">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <nav class="navbar navbar-default padding_margin " role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button aria-expanded="false" type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#navDiv"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+                class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          </div>
+          <div class="collapse navbar-collapse superadmin" id="navDiv">
+            <ul style="width:100%" class="nav navbar-nav navbar-nav1">
+              <li style='width:12.5%'><a startLoaderClass href=/ccet/base>DASHBOARD</a></li>
+              <li style='width:12.5%'><a class='startLoaderClass'
+                  href=/ccet/base/umsprivilege/index?secureKey=MEFRTnV0OFpMSTV1blhhdzNmNFp2Zz09OnpqcFRFYmVQNTNnbVNMamRGSjE5L3c9PQ==&secureHash=fbcb019a23940d0ae8d6b7bee8c3e538>EXAMINATION</a>
+              </li>
+              <li style='width:12.5%'><a class='selected startLoaderClass'
+                  href=/ccet/base/umsprivilege/index?secureKey=R2hJZ2RjY2kySzVzTE41dUQ3NnhlQT09OlNtN1dpVnQ1eHJqV0dzQW5PNXJhbEE9PQ==&secureHash=cc24fe2ab7665fc61fd8b51b362a60af>RESULT</a>
+              </li>
+              <li style='width:12.5%'><a class='startLoaderClass'
+                  href=/ccet/base/umsprivilege/index?secureKey=dDBaVjNyMWx6U2hiVmFsUkRIcVRQdz09Oi9rWjVJQzJDOTdwN0FNTW9tQnRmMHc9PQ==&secureHash=6d0d4cfeac3c6e1e74d3cfb0d878ec23>ATTENDANCE</a>
+              </li>
+              <li style='width:12.5%'><a class='startLoaderClass'
+                  href=/ccet/base/umsprivilege/index?secureKey=Q2xrTDJHdDYwQ1pkYjZZb0ZnVXpRdz09OnE5S3ZhL3pWZ0JncEoxS1BmVjFWNGc9PQ==&secureHash=45b60263bca34fc6aac23b37676957aa>SYLLABUS</a>
+              </li>
+              <li style='width:12.5%'><a class='startLoaderClass'
+                  href=/ccet/base/umsprivilege/index?secureKey=NjY5RDNXbFhFSzdqZlZvMmRFQURrUT09Omcyb3kvb3J5ajJKUFExMjhlWWh2TlE9PQ==&secureHash=b668e6d98884b3987b622f1086ba05fb>DOCUPLOAD</a>
+              </li>
+              <li style='width:12.5%'><a class='startLoaderClass'
+                  href=/ccet/base/umsprivilege/index?secureKey=TWZTSXFUcitDQXliZjRWU09LK1dJZz09OlpydVBSSkF3ZVU4b3pBY2RSRVFITkE9PQ==&secureHash=2d5c7fd605dabf5268b9bc52a4f38513>SETTINGS</a>
+              </li>
+              <li style='margin-top:0.4%;width:12%'>
+                <form action='/ccet/default/logout' method='POST'><input type='hidden' name='_csrf'
+                    value='TjUueTlpYmEmWkcxcCAqJShYHzxLCCgJOG16DF4tVzc8GHxKbTMIKA==' /><input id='_jsonwebtoken'
+                    type='hidden' name='jsonwebtoken'
+                    value='NjFmODc0NzU4YjgyNTgyOTA1MmVmODM1ZTQyMGEwN2ZhMzg2ZGM0OTY2NjdhOWEzNzgwZDk0M2ExYzVhNTFlMdCZJoro67oHRimxH0CTTqfFvUsrWycgXrdsYRdmhOiZ' /><input
+                    type='submit' class='logout_btn startLoaderClass' value='LOGOUT'>
+              </li>
+              </form>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="clr"></div>
+  </div>
+  </div>
+  <style>
+    .downloadpdfmarks {
+      background: none;
+      border: medium none;
+      font-size: 14px;
+    }
+
+    sub {
+      bottom: -.30em;
+    }
+  </style>
+  <form target="_blank" method="POST" id="aa" action="/ccet/result/viewresultforstudent/downloadstudentresult">
+    <div class="container paddtop117">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-right">
+
+            <input id="_csrf" type="hidden" name="_csrf"
+              value="TjUueTlpYmEmWkcxcCAqJShYHzxLCCgJOG16DF4tVzc8GHxKbTMIKA==" />
+            <input type="hidden" readonly="" name="pdf[session_yr]" value="MjAyNS0yMDI5" />
+            <input type="hidden" readonly="" name="pdf[dept_id]" value="MTAx" />
+            <input type="hidden" readonly="" name="pdf[course]" value="MTE=" />
+            <input type="hidden" readonly="" name="pdf[semesterId]" value="Mg==" />
+            <input type="hidden" readonly="" name="pdf[dept_name]" value="Q29tcHV0ZXIgU2NpZW5jZSAmIEVuZ2luZWVyaW5n" />
+            <input type="hidden" readonly="" name="pdf[course_name]" value="Qi5FLg==" />
+
+            <input type="hidden" readonly="" name="pdf[secureKey]"
+              value="M0NTTmIvSit6YThzMzRYSkczVDdsQT09OlBGQ0ZIRnZ1YXp5RE9NUnh0TmJ5UkE9PQ==" />
+            <input type="hidden" readonly="" name="pdf[secureHash]" value="b6f5252d535d7d92e282af71eed300d6" />
+
+
+            <!-- <button type="button" onclick="downloadstudentresultsheet()" class="downloadpdfmarks">Download Result Sheet <img src="/ccet/images/print-icon.png" /></button> -->
+
+          </div>
+        </div>
+      </div>
+      <div class="row mar21">
+        <div style="margin-left:15%;width:70%" class="col-lg-12 mar10">
+          <div class="text-center alert alert-danger" style="padding:5px">
+            <strong>Disclaimer: </strong>Information displayed below is being provided before final scrutiny and
+            declaration by COE office, PU, to facilitate students of CCET to be
+            informed about their result. The result is informative in nature and should not be construed as
+            final. Final result will be declared by COE office, PU.
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-12">
+              <table style="width: 70%; margin-bottom: 12px;" align='center'>
+                <tbody>
+
+                  <tr align="left">
+                    <td><b> Department Name: &nbsp;&nbsp;</b></td>
+                    <td>Computer Science & Engineering&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="hidden" readonly="" name="studentInfo[0][dept_name]" value="CO25312" />
+                    </td>
+                    <td><b> Course: &nbsp;&nbsp;</b></td>
+                    <td>B.E.&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="hidden" readonly="" name="studentInfo[0][course_name]" value="37025000022" />
+                    </td>
+                    <td> <b>Batch:&nbsp;&nbsp;</b></td>
+                    <td>2025-2029&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="hidden" readonly="" name="studentInfo[0][batch]" value="ARSHVEER  SINGH DHANOA" />
+                    </td>
+                  </tr>
+
+                  <tr align="left">
+                    <td><b> Roll No: &nbsp;&nbsp;</b></td>
+                    <td>CO25312&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="hidden" readonly="" name="studentInfo[0][Roll_Number]" value="CO25312" />
+                    </td>
+                    <td><b> Regd. No: &nbsp;&nbsp;</b></td>
+                    <td>37025000022&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="hidden" readonly="" name="studentInfo[0][Registration_Number]" value="37025000022" />
+                    </td>
+                    <td> <b>Student Name:&nbsp;&nbsp;</b></td>
+                    <td>ARSHVEER SINGH DHANOA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="hidden" readonly="" name="studentInfo[0][name]" value="ARSHVEER  SINGH DHANOA" />
+                    </td>
+                  </tr>
+                  <tr align="left">
+                    <td> <b>Father Name:&nbsp;&nbsp;</b></td>
+                    <td>KULWANT SINGH DHANOA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                      <input type="hidden" readonly="" name="studentInfo[0][father_name]"
+                        value="KULWANT SINGH DHANOA" />
+                    </td>
+                    <td><b>Mother Name:&nbsp;&nbsp;</b></td>
+                    <td>GURLEEN DHANOA&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="hidden" readonly="" name="studentInfo[0][mother_name]" value="GURLEEN DHANOA" />
+                    </td>
+                    <td><b>Semester:&nbsp;&nbsp; </b></td>
+                    <td>2 <input type="hidden" readonly="" name="studentInfo[0][Semester_Id]" value="2" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!--Marks Details-->
+              <table style="width: 70%;" class="adminlist" align="center">
+                <thead>
+                  <tr>
+                    <th style="width:40%">Subject Name</th>
+                    <th style="width:15%">Subject Code</th>
+                    <th style="width:15%"></th>
+                    <!--
+                        <th style="width:10%">Marks</th>    
+                        <th style="width:7%">VCG</th>   
+                        <th style="width:8%">Grace</th> 
+                        -->
+                    <th style="width:15%;">Grade Awarded</th>
+                    <th style="width:15%;">Earned Credit</th>
+                    <!--
+                        <th style="width:12%;">Grade Point </th>
+                        <th style="width:12%;">Point Secured</th>
+                        -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Applied Chemistry</td>
+                    <td>ASC X01</td>
+                    <td>
+                      <input type="hidden" name="studentInfo[0][Subject_Name][]" value="Applied Chemistry" />
+                      <input type="hidden" name="studentInfo[0][subject_code][]" value="ASC X01" />
+                      <input type="hidden" name="studentInfo[0][Subject_Type][]" value="Theory" />
+                      <input type="hidden" name="studentInfo[0][Assigned_Credit][]" value="4" />
+                      Theory
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Marks'] ?>
+                        <input type="hidden" name="studentInfo[0][Marks][]" value="57" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['VCG'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][VCG][]" value=" " />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Grace'] ?>
+                        <input type="hidden" name="studentInfo[0][Grace][]" value="0" />
+                        </td>
+                        -->
+
+                    <td style="text-align:center;">C+ <input type="hidden" name="studentInfo[0][Grade][]" value="C+" />
+                    </td>
+                    <td style="text-align:center;">4 <input type="hidden" name="studentInfo[0][Earned_Credit][]"
+                        value="4" />
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Grade_Points'] ?>
+                        <input type="hidden" name="studentInfo[0][Grade_Points][]" value="6" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Point_Secured'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][Point_Secured][]" value="24" />
+                        </td>
+                        -->
+                  </tr>
+                  <tr>
+                    <td>Applied Chemistry (P)</td>
+                    <td>ASC X51</td>
+                    <td>
+                      <input type="hidden" name="studentInfo[0][Subject_Name][]" value="Applied Chemistry (P)" />
+                      <input type="hidden" name="studentInfo[0][subject_code][]" value="ASC X51" />
+                      <input type="hidden" name="studentInfo[0][Subject_Type][]" value="Practical" />
+                      <input type="hidden" name="studentInfo[0][Assigned_Credit][]" value="1" />
+                      Practical
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Marks'] ?>
+                        <input type="hidden" name="studentInfo[0][Marks][]" value="26" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['VCG'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][VCG][]" value=" " />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Grace'] ?>
+                        <input type="hidden" name="studentInfo[0][Grace][]" value="0" />
+                        </td>
+                        -->
+
+                    <td style="text-align:center;">C+ <input type="hidden" name="studentInfo[0][Grade][]" value="C+" />
+                    </td>
+                    <td style="text-align:center;">1 <input type="hidden" name="studentInfo[0][Earned_Credit][]"
+                        value="1" />
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Grade_Points'] ?>
+                        <input type="hidden" name="studentInfo[0][Grade_Points][]" value="6" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Point_Secured'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][Point_Secured][]" value="6" />
+                        </td>
+                        -->
+                  </tr>
+                  <tr>
+                    <td>Basic Electrical and Electronics Engineering</td>
+                    <td>EEC X01</td>
+                    <td>
+                      <input type="hidden" name="studentInfo[0][Subject_Name][]"
+                        value="Basic Electrical and Electronics Engineering" />
+                      <input type="hidden" name="studentInfo[0][subject_code][]" value="EEC X01" />
+                      <input type="hidden" name="studentInfo[0][Subject_Type][]" value="Theory" />
+                      <input type="hidden" name="studentInfo[0][Assigned_Credit][]" value="3" />
+                      Theory
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Marks'] ?>
+                        <input type="hidden" name="studentInfo[0][Marks][]" value="57" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['VCG'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][VCG][]" value=" " />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Grace'] ?>
+                        <input type="hidden" name="studentInfo[0][Grace][]" value="0" />
+                        </td>
+                        -->
+
+                    <td style="text-align:center;">C+ <input type="hidden" name="studentInfo[0][Grade][]" value="D" />
+                    </td>
+                    <td style="text-align:center;">3 <input type="hidden" name="studentInfo[0][Earned_Credit][]"
+                        value="3" />
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Grade_Points'] ?>
+                        <input type="hidden" name="studentInfo[0][Grade_Points][]" value="4" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Point_Secured'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][Point_Secured][]" value="12" />
+                        </td>
+                        -->
+                  </tr>
+                  <tr>
+                    <td>Basic Electrical and Electronics Engineering (P)</td>
+                    <td>EEC X51</td>
+                    <td>
+                      <input type="hidden" name="studentInfo[0][Subject_Name][]"
+                        value="Basic Electrical and Electronics Engineering (P)" />
+                      <input type="hidden" name="studentInfo[0][subject_code][]" value="EEC X51" />
+                      <input type="hidden" name="studentInfo[0][Subject_Type][]" value="Practical" />
+                      <input type="hidden" name="studentInfo[0][Assigned_Credit][]" value="1" />
+                      Practical
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Marks'] ?>
+                        <input type="hidden" name="studentInfo[0][Marks][]" value="28" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['VCG'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][VCG][]" value=" " />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Grace'] ?>
+                        <input type="hidden" name="studentInfo[0][Grace][]" value="0" />
+                        </td>
+                        -->
+
+                    <td style="text-align:center;">C+ <input type="hidden" name="studentInfo[0][Grade][]" value="C+" />
+                    </td>
+                    <td style="text-align:center;">1 <input type="hidden" name="studentInfo[0][Earned_Credit][]"
+                        value="1" />
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Grade_Points'] ?>
+                        <input type="hidden" name="studentInfo[0][Grade_Points][]" value="6" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Point_Secured'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][Point_Secured][]" value="6" />
+                        </td>
+                        -->
+                  </tr>
+                  <tr>
+                    <td>Differential Equations and Transforms</td>
+                    <td>MATHS201</td>
+                    <td>
+                      <input type="hidden" name="studentInfo[0][Subject_Name][]"
+                        value="Differential Equations and Transforms" />
+                      <input type="hidden" name="studentInfo[0][subject_code][]" value="MATHS201" />
+                      <input type="hidden" name="studentInfo[0][Subject_Type][]" value="Theory" />
+                      <input type="hidden" name="studentInfo[0][Assigned_Credit][]" value="5" />
+                      Theory
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Marks'] ?>
+                        <input type="hidden" name="studentInfo[0][Marks][]" value="61" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['VCG'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][VCG][]" value=" " />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Grace'] ?>
+                        <input type="hidden" name="studentInfo[0][Grace][]" value="0" />
+                        </td>
+                        -->
+
+                    <td style="text-align:center;">B <input type="hidden" name="studentInfo[0][Grade][]" value="C+" />
+                    </td>
+                    <td style="text-align:center;">5 <input type="hidden" name="studentInfo[0][Earned_Credit][]"
+                        value="5" />
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Grade_Points'] ?>
+                        <input type="hidden" name="studentInfo[0][Grade_Points][]" value="6" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Point_Secured'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][Point_Secured][]" value="30" />
+                        </td>
+                        -->
+                  </tr>
+                  <tr>
+                    <td>Engineering Graphics</td>
+                    <td>ESC X04</td>
+                    <td>
+                      <input type="hidden" name="studentInfo[0][Subject_Name][]" value="Engineering Graphics" />
+                      <input type="hidden" name="studentInfo[0][subject_code][]" value="ESC X04" />
+                      <input type="hidden" name="studentInfo[0][Subject_Type][]" value="Theory" />
+                      <input type="hidden" name="studentInfo[0][Assigned_Credit][]" value="1" />
+                      Theory
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Marks'] ?>
+                        <input type="hidden" name="studentInfo[0][Marks][]" value="60" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['VCG'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][VCG][]" value=" " />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Grace'] ?>
+                        <input type="hidden" name="studentInfo[0][Grace][]" value="0" />
+                        </td>
+                        -->
+
+                    <td style="text-align:center;">B <input type="hidden" name="studentInfo[0][Grade][]" value="C+" />
+                    </td>
+                    <td style="text-align:center;">1 <input type="hidden" name="studentInfo[0][Earned_Credit][]"
+                        value="1" />
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Grade_Points'] ?>
+                        <input type="hidden" name="studentInfo[0][Grade_Points][]" value="6" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Point_Secured'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][Point_Secured][]" value="6" />
+                        </td>
+                        -->
+                  </tr>
+                  <tr>
+                    <td>Engineering Graphics (P)</td>
+                    <td>ESC X54</td>
+                    <td>
+                      <input type="hidden" name="studentInfo[0][Subject_Name][]" value="Engineering Graphics (P)" />
+                      <input type="hidden" name="studentInfo[0][subject_code][]" value="ESC X54" />
+                      <input type="hidden" name="studentInfo[0][Subject_Type][]" value="Practical" />
+                      <input type="hidden" name="studentInfo[0][Assigned_Credit][]" value="1" />
+                      Practical
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Marks'] ?>
+                        <input type="hidden" name="studentInfo[0][Marks][]" value="42" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['VCG'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][VCG][]" value=" " />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Grace'] ?>
+                        <input type="hidden" name="studentInfo[0][Grace][]" value="0" />
+                        </td>
+                        -->
+
+                    <td style="text-align:center;">A <input type="hidden" name="studentInfo[0][Grade][]" value="A" />
+                    </td>
+                    <td style="text-align:center;">1 <input type="hidden" name="studentInfo[0][Earned_Credit][]"
+                        value="1" />
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Grade_Points'] ?>
+                        <input type="hidden" name="studentInfo[0][Grade_Points][]" value="9" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Point_Secured'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][Point_Secured][]" value="9" />
+                        </td>
+                        -->
+                  </tr>
+                  <tr>
+                    <td>Environment Sciences</td>
+                    <td>EVS X01</td>
+                    <td>
+                      <input type="hidden" name="studentInfo[0][Subject_Name][]" value="Environment Sciences" />
+                      <input type="hidden" name="studentInfo[0][subject_code][]" value="EVS X01" />
+                      <input type="hidden" name="studentInfo[0][Subject_Type][]" value="Theory" />
+                      <input type="hidden" name="studentInfo[0][Assigned_Credit][]" value="0" />
+                      Theory
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Marks'] ?>
+                        <input type="hidden" name="studentInfo[0][Marks][]" value="500" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['VCG'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][VCG][]" value=" " />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Grace'] ?>
+                        <input type="hidden" name="studentInfo[0][Grace][]" value="0" />
+                        </td>
+                        -->
+
+                    <td style="text-align:center;">S <input type="hidden" name="studentInfo[0][Grade][]" value="S" />
+                    </td>
+                    <td style="text-align:center;">-- <input type="hidden" name="studentInfo[0][Earned_Credit][]"
+                        value="--" />
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Grade_Points'] ?>
+                        <input type="hidden" name="studentInfo[0][Grade_Points][]" value="1" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Point_Secured'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][Point_Secured][]" value="--" />
+                        </td>
+                        -->
+                  </tr>
+                  <tr>
+                    <td>Object Oriented Programming</td>
+                    <td>CSC 201</td>
+                    <td>
+                      <input type="hidden" name="studentInfo[0][Subject_Name][]" value="Object Oriented Programming" />
+                      <input type="hidden" name="studentInfo[0][subject_code][]" value="CSC 201" />
+                      <input type="hidden" name="studentInfo[0][Subject_Type][]" value="Theory" />
+                      <input type="hidden" name="studentInfo[0][Assigned_Credit][]" value="3" />
+                      Theory
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Marks'] ?>
+                        <input type="hidden" name="studentInfo[0][Marks][]" value="55" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['VCG'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][VCG][]" value=" " />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Grace'] ?>
+                        <input type="hidden" name="studentInfo[0][Grace][]" value="0" />
+                        </td>
+                        -->
+
+                    <td style="text-align:center;">C+ <input type="hidden" name="studentInfo[0][Grade][]" value="C" />
+                    </td>
+                    <td style="text-align:center;">3 <input type="hidden" name="studentInfo[0][Earned_Credit][]"
+                        value="3" />
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Grade_Points'] ?>
+                        <input type="hidden" name="studentInfo[0][Grade_Points][]" value="5" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Point_Secured'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][Point_Secured][]" value="15" />
+                        </td>
+                        -->
+                  </tr>
+                  <tr>
+                    <td>Object Oriented Programming (P)</td>
+                    <td>CSC 251</td>
+                    <td>
+                      <input type="hidden" name="studentInfo[0][Subject_Name][]"
+                        value="Object Oriented Programming (P)" />
+                      <input type="hidden" name="studentInfo[0][subject_code][]" value="CSC 251" />
+                      <input type="hidden" name="studentInfo[0][Subject_Type][]" value="Practical" />
+                      <input type="hidden" name="studentInfo[0][Assigned_Credit][]" value="1" />
+                      Practical
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Marks'] ?>
+                        <input type="hidden" name="studentInfo[0][Marks][]" value="33" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['VCG'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][VCG][]" value=" " />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Grace'] ?>
+                        <input type="hidden" name="studentInfo[0][Grace][]" value="0" />
+                        </td>
+                        -->
+
+                    <td style="text-align:center;">B <input type="hidden" name="studentInfo[0][Grade][]" value="B" />
+                    </td>
+                    <td style="text-align:center;">1 <input type="hidden" name="studentInfo[0][Earned_Credit][]"
+                        value="1" />
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Grade_Points'] ?>
+                        <input type="hidden" name="studentInfo[0][Grade_Points][]" value="7" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Point_Secured'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][Point_Secured][]" value="7" />
+                        </td>
+                        -->
+                  </tr>
+                  <tr>
+                    <td>Product Re-engineering and Innovation</td>
+                    <td>ST 251</td>
+                    <td>
+                      <input type="hidden" name="studentInfo[0][Subject_Name][]"
+                        value="Product Re-engineering and  Innovation" />
+                      <input type="hidden" name="studentInfo[0][subject_code][]" value="ST 251" />
+                      <input type="hidden" name="studentInfo[0][Subject_Type][]" value="Practical" />
+                      <input type="hidden" name="studentInfo[0][Assigned_Credit][]" value="0" />
+                      Practical
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Marks'] ?>
+                        <input type="hidden" name="studentInfo[0][Marks][]" value="500" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['VCG'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][VCG][]" value=" " />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Grace'] ?>
+                        <input type="hidden" name="studentInfo[0][Grace][]" value="0" />
+                        </td>
+                        -->
+
+                    <td style="text-align:center;">S <input type="hidden" name="studentInfo[0][Grade][]" value="S" />
+                    </td>
+                    <td style="text-align:center;">-- <input type="hidden" name="studentInfo[0][Earned_Credit][]"
+                        value="--" />
+                    </td>
+                    <!--
+                        <td style="text-align:center;"><?//=$mark['Grade_Points'] ?>
+                        <input type="hidden" name="studentInfo[0][Grade_Points][]" value="1" />
+                        </td>
+                        <td style="text-align:center;"><?//=$mark['Point_Secured'] ?>
+                        <input type="hidden" name="studentInfo[<?//=$i ?>][Point_Secured][]" value="--" />
+                        </td>
+                        -->
+                  </tr>
+                </tbody>
+              </table>
+
+              <input type="hidden" readonly="" name="studentInfo[0][PastEarned_Credit]" value="--" />
+              <input type="hidden" readonly="" name="studentInfo[0][PastPoint_Secured]" value="--" />
+              <input type="hidden" readonly="" name="studentInfo[0][PastAssignedCredit]" value="--" />
+              <input type="hidden" readonly="" name="studentInfo[0][CurrentAssignedCredit]" value="20" />
+              <input type="hidden" readonly="" name="studentInfo[0][CurrentEarned_Credit]" value="20" />
+              <input type="hidden" readonly="" name="studentInfo[0][CurrentPoint_Secured]" value="115" />
+              <input type="hidden" readonly="" name="studentInfo[0][CumulativeEarned_Credit]" value="20" />
+              <input type="hidden" readonly="" name="studentInfo[0][CumulativePoint_Secured]" value="115" />
+              <input type="hidden" readonly="" name="studentInfo[0][CumulativeAssignedCredit]" value="20" />
+              <table align="" style="margin-top: 1%;margin-left: 15%;">
+                <tbody>
+                  <tr>
+                    <td>
+                      <p> <b>Result : SGPA&nbsp;=&nbsp;</b>
+                        6.46 <input type="hidden" readonly="" name="studentInfo[0][SGPA]" value="5.75" />
+                        <input type="hidden" readonly="" name="studentInfo[0][CGPA]" value="5.55" />
+                        <input type="hidden" readonly="" name="studentInfo[0][Cumulative_Earned_Credits]" value="20" />
+                      </p>
+                    </td>
+                    <td>
+                      <p style="padding-left:15px;"><b>Cumulative Earned
+                          Credits&nbsp;=&nbsp;</b>20</p>
+                    </td>
+                    <td>
+                      <p style="padding-left:15px;"><b>CGPA&nbsp;=&nbsp;</b>
+                        5.91 </p>
+                    </td>
+
+
+
+                  </tr>
+
+                </tbody>
+              </table>
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+  <form id="add" target="_blank" method="POST" action="/ccet/result/viewresultforstudent/downloadstudentresult">
+
+
+  </form>
+  <script>
+    //$(document).ready(function(){
+    //    
+    //    
+    //});
+    function downloadstudentresultsheet() {
+      $("#add").html("");
+      var aa = $("#aa").serialize();
+      $("#add").append('<input id="_csrf" type="hidden" name="_csrf" value="TjUueTlpYmEmWkcxcCAqJShYHzxLCCgJOG16DF4tVzc8GHxKbTMIKA==" />')
+      $("#add").append('<input type="hidden" value="' + aa + '" readonly="" name="data"  />');
+      $("#add").submit();
+      $("#add").html("");
+    }
+  </script>
+  <footer class="footer">
+    <div id="footer">
+
+      <!-- Footer bar-->
+
+      <!-- 		<nav class="navbar navbar-default navbar-fixed-bottom" style="background-color:#ED865D;position: fixed; bottom: 0;width: 100%; height: 20px;">
+ -->
+      <nav class="navbar navbar-default navbar-fixed-bottom"
+        style="background-color:#ED865D;position: fixed; bottom: 0;width: 100%; height: 20px;">
+        <div class="container">
+          <div class="col-lg-6">
+            <div class="footer-copycont">eAkadamik &copy; copyright 2026. All Rights Reserved.</div>
+          </div>
+          <div class="col-lg-6">
+            <div class="footer-copycont" style="text-align:right;">Powered By C-DAC Mohali</div>
+          </div>
+        </div>
+      </nav>
+      <!-- Footer Bar Ends here-->
+
+    </div>
+
+
+  </footer>
+
+
+
+
+
+
+</body>
+
+</html>
